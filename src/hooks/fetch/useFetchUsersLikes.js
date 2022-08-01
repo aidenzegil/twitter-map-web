@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-async function fetchNewTweet(id) {
+async function fetchNewUsersLikes(id) {
 
     const result = await fetch("https://tweeterman.herokuapp.com/tweet/", {
       method: "POST",
@@ -14,13 +14,13 @@ async function fetchNewTweet(id) {
   }
   
   
-  export const useFetchTweet = (id) => {
-    const [tweet, setTweet] = useState([""]);
+  export const useFetchUsersLikes = (id) => {
+    const [usersLikes, setUsersLikes] = useState([""]);
   
-    const fetchTweet= async() => {
-      const newTweet = await fetchNewTweet(id)
-      setTweet(newTweet)
+    const fetchUsersLikes= async() => {
+      const newUsersLikes = await fetchNewUsersLikes(id)
+      setUsersLikes(newUsersLikes)
     }
   
-    return [fetchTweet, tweet];
+    return [fetchUsersLikes, usersLikes];
   };
